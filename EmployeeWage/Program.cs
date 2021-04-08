@@ -1,17 +1,22 @@
-﻿using System;
+﻿
+using System;
 
 namespace EmployeeWage
 {
     class Program
     {
+        // constants declaration
+        public const int FULL_TIME = 1;
+        public const int PART_TIME = 2;
+        public const int EMP_RATE_PER_HOUR = 20;
+
+        /// <summary>
+        /// Calculate emp wage using case statements
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             Console.WriteLine("********Welome to Employee Wage Program***********");
-
-            //Constants
-            int EMP_RATE_PER_HOUR = 20;
-            int FULL_TIME = 1;
-            int PART_TIME = 2;
             //local variables
             int empHrs = 0;
             int empWage = 0;
@@ -19,19 +24,21 @@ namespace EmployeeWage
             int employeeCheck = random.Next(0, 3);
 
             Console.WriteLine("random value " + employeeCheck);
-            if (employeeCheck == FULL_TIME)
+            switch (employeeCheck)
             {
-                empHrs = 8;
-            }
-            else if (employeeCheck == PART_TIME)
-            {
-                empHrs = 4;
-            }
-            else
-            {
-                empHrs = 0;
+                case FULL_TIME:
+                    empHrs = 8;
+                    break;
+                case PART_TIME:
+                    empHrs = 4;
+                    break;
+                default:
+                    empHrs = 0;
+                    break;
+
             }
 
+            //Calculate employee's wages 
             empWage = EMP_RATE_PER_HOUR * empHrs;
             Console.WriteLine("Employee wage per day is : " + empWage);
             Console.ReadLine();
