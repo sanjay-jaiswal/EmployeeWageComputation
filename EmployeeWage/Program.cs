@@ -2,7 +2,7 @@
 
 namespace EmployeeWage
 {
-    class Program
+   public class Program
     {
         static void Main(string[] args)
         {
@@ -10,9 +10,11 @@ namespace EmployeeWage
             Console.WriteLine("=====================================================================================================");
 
             EmpWageBuilderArray empWageBuilderArray = new EmpWageBuilderArray();
+            EmpWageBuilderArray empWageBuilderArray = new EmpWageBuilderArray();
             empWageBuilderArray.addCompanyEmpWage("Dmart", 20, 2, 10);
             empWageBuilderArray.addCompanyEmpWage("Reliance", 10, 4, 20);
-            empWageBuilderArray.addCompanyEmpWage("PhonePay", 15, 5, 22);
+            empWageBuilderArray.addCompanyEmpWage("Samsung", 25, 5, 22);
+            empWageBuilderArray.addCompanyEmpWage("Facebook", 30, 6, 25);
             empWageBuilderArray.computeEmpWage();
         }       
     }
