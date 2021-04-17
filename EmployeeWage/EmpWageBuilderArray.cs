@@ -8,16 +8,23 @@ namespace EmployeeWage
     /// Declaration of constants
     /// And Array to store company emp wage
     /// </summary>
+<<<<<<< HEAD
 
     class EmpWageBuilderArray
+=======
+    public class EmpWageBuilderArray
+>>>>>>> 91c6812f58165b76594b557da37dab683c298b6a
     {
         public const int IS_PART_TIME = 1;
         public const int IS_FULL_TIME = 2;
         private int numOfCompany = 0;
 
+<<<<<<< HEAD
         //Linked list for emp wage
         LinkedList<CompanyEmpWage> companyEmpWageList;
 
+=======
+>>>>>>> 91c6812f58165b76594b557da37dab683c298b6a
         public EmpWageBuilderArray()
         {
             this.companyEmpWageList = new LinkedList<CompanyEmpWage>();
@@ -65,5 +72,6 @@ namespace EmployeeWage
             }
             return totalEmployeeHour * companyEmpWage.empRatePerHour;
         }
+
     }
 }
