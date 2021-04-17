@@ -8,51 +8,36 @@ namespace EmployeeWage
     /// Declaration of constants
     /// And Array to store company emp wage
     /// </summary>
+
     class EmpWageBuilderArray
     {
         public const int IS_PART_TIME = 1;
         public const int IS_FULL_TIME = 2;
         private int numOfCompany = 0;
-        private CompanyEmpWage[] companyEmpWageArray;
 
-        /// <summary>
-        /// this method will store each compnies emp wage in array[] with index numbers starting from zero.
-        /// </summary>
+        //Linked list for emp wage
+        LinkedList<CompanyEmpWage> companyEmpWageList;
+
         public EmpWageBuilderArray()
         {
-            this.companyEmpWageArray = new CompanyEmpWage[5];
+            this.companyEmpWageList = new LinkedList<CompanyEmpWage>();
         }
 
-        /// <summary>
-        /// Passing arguments in this method for multiple companies which is stored in array.
-        /// </summary>
-        /// <param name="company"></param>
-        /// <param name="empRatePerHour"></param>
-        /// <param name="numOfWorkingDays"></param>
-        /// <param name="maxHoursPerMonth"></param>
         public void addCompanyEmpWage(string company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
         {
-            companyEmpWageArray[this.numOfCompany] = new CompanyEmpWage(company, empRatePerHour, numOfWorkingDays, maxHoursPerMonth);
-            numOfCompany++;
+            CompanyEmpWage companyEmpWage = new CompanyEmpWage(company, empRatePerHour, numOfWorkingDays, maxHoursPerMonth);
+            this.companyEmpWageList.AddLast(companyEmpWage);
         }
 
-        /// <summary>
-        /// Compute employee wage for all companies
-        /// </summary>
         public void computeEmpWage()
         {
-            for (int i = 0; i < numOfCompany; i++)
+            foreach (CompanyEmpWage companyEmpWage in this.companyEmpWageList)
             {
-                companyEmpWageArray[i].setTotalEmpWage(this.computeEmpWage(this.companyEmpWageArray[i]));
-                Console.WriteLine(this.companyEmpWageArray[i].toString());
+                companyEmpWage.setTotalEmpWage(this.computeEmpWage(companyEmpWage));
+                Console.WriteLine(companyEmpWage.toString());
             }
         }
 
-        /// <summary>
-        /// Calculate employee wage 
-        /// </summary>
-        /// <param name="companyEmpWage"></param>
-        /// <returns></returns>
         public int computeEmpWage(CompanyEmpWage companyEmpWage)
         {
             int empHrs = 0;
