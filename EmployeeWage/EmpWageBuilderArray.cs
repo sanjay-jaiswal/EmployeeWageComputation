@@ -8,30 +8,34 @@ namespace EmployeeWage
     /// Declaration of constants
     /// And Array to store company emp wage
     /// </summary>
+
+    public class EmpWageBuilderArray
     public class EmpWageBuilderArray
     {
         public const int IS_PART_TIME = 1;
         public const int IS_FULL_TIME = 2;
         private int numOfCompany = 0;
-        private CompanyEmpWage[] companyEmpWageArray;
+
+        //Linked list for emp wage
+        LinkedList<CompanyEmpWage> companyEmpWageList;
 
         public EmpWageBuilderArray()
         {
-            this.companyEmpWageArray = new CompanyEmpWage[5];
+            this.companyEmpWageList = new LinkedList<CompanyEmpWage>();
         }
 
         public void addCompanyEmpWage(string company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
         {
-            companyEmpWageArray[this.numOfCompany] = new CompanyEmpWage(company, empRatePerHour, numOfWorkingDays, maxHoursPerMonth);
-            numOfCompany++;
+            CompanyEmpWage companyEmpWage = new CompanyEmpWage(company, empRatePerHour, numOfWorkingDays, maxHoursPerMonth);
+            this.companyEmpWageList.AddLast(companyEmpWage);
         }
 
         public void computeEmpWage()
         {
-            for (int i = 0; i < numOfCompany; i++)
+            foreach (CompanyEmpWage companyEmpWage in this.companyEmpWageList)
             {
-                companyEmpWageArray[i].setTotalEmpWage(this.computeEmpWage(this.companyEmpWageArray[i]));
-                Console.WriteLine(this.companyEmpWageArray[i].toString());
+                companyEmpWage.setTotalEmpWage(this.computeEmpWage(companyEmpWage));
+                Console.WriteLine(companyEmpWage.toString());
             }
         }
 
