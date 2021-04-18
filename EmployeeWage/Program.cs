@@ -2,7 +2,7 @@
 
 namespace EmployeeWage
 {
-    class Program
+   public class Program
     {
         static void Main(string[] args)
         {
@@ -10,8 +10,8 @@ namespace EmployeeWage
             Console.WriteLine("=====================================================================================================");
 
             //Creating the object of EmpWageBuilderArray
-            EmpWageBuilderArray empWageBuilderArray = new EmpWageBuilderArray();
             //Calling the addCompanyEmpWage() method using object of class and Passing the argument.
+            EmpWageBuilderArray empWageBuilderArray = new EmpWageBuilderArray();
             empWageBuilderArray.addCompanyEmpWage("Dmart", 20, 2, 10);
             empWageBuilderArray.addCompanyEmpWage("Reliance", 10, 4, 20);
             empWageBuilderArray.addCompanyEmpWage("Samsung", 25, 5, 22);

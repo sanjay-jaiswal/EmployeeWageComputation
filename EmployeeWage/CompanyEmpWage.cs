@@ -4,9 +4,6 @@ using System.Text;
 
 namespace EmployeeWage
 {
-    /// <summary>
-    /// Variables declarations
-    /// </summary>
     class CompanyEmpWage
     {
         public string company;
@@ -45,7 +42,7 @@ namespace EmployeeWage
         /// <returns></returns>
         public string toString()
         {
-            return "Total emp wages for company " + this.company + " is : " + this.totalEmpWages;
+            return "Total emp wages for a company is : " + this.company + " is : " + this.totalEmpWages;
         }
     }
 }
