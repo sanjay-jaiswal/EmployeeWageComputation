@@ -4,6 +4,9 @@ using System.Text;
 
 namespace EmployeeWage
 {
+    /// <summary>
+    /// Variables declarations
+    /// </summary>
     class CompanyEmpWage
     {
         public string company;
@@ -12,6 +15,13 @@ namespace EmployeeWage
         public int maxHoursPerMonth;
         public int totalEmpWages;
 
+        /// <summary>
+        /// Parameterised Constructor initialized
+        /// </summary>
+        /// <param name="company"></param>
+        /// <param name="empRatePerHour"></param>
+        /// <param name="numOfWorkingDays"></param>
+        /// <param name="maxHoursPerMonth"></param>
         public CompanyEmpWage(string company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
         {
             this.company = company;
@@ -20,11 +30,19 @@ namespace EmployeeWage
             this.maxHoursPerMonth = maxHoursPerMonth;
         }
 
+        /// <summary>
+        /// Passing totalempwage into setTotalempwage method
+        /// </summary>
+        /// <param name="totalEmpWages"></param>
         public void setTotalEmpWage(int totalEmpWages)
         {
             this.totalEmpWages = totalEmpWages;
         }
 
+        /// <summary>
+        /// ToString () Method is used to read object into striing format
+        /// </summary>
+        /// <returns></returns>
         public string toString()
         {
             return "Total emp wages for company " + this.company + " is : " + this.totalEmpWages;
