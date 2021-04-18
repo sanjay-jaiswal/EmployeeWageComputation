@@ -8,14 +8,12 @@ namespace EmployeeWage
     /// Declaration of constants
     /// And Array to store company emp wage
     /// </summary>
-
-    public class EmpWageBuilderArray
     public class EmpWageBuilderArray
     {
         public const int IS_PART_TIME = 1;
         public const int IS_FULL_TIME = 2;
 
-        //Linked list for emp wage and store total wage in dictionary
+        //Store emp wage along with total wage
         LinkedList<CompanyEmpWage> companyEmpWageList;
         Dictionary<string, CompanyEmpWage> companyToEmpWageMap;
 
@@ -25,13 +23,21 @@ namespace EmployeeWage
             this.companyToEmpWageMap = new Dictionary<string, CompanyEmpWage>();
         }
 
+        /// <summary>
+        /// Passing parameter in addCompanyEmpWage
+        /// like company name,rate per hr, working days etc.
+        /// </summary>
+        /// <param name="company"></param>
+        /// <param name="empRatePerHour"></param>
+        /// <param name="numOfWorkingDays"></param>
+        /// <param name="maxHoursPerMonth"></param>
         public void addCompanyEmpWage(string company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
         {
             CompanyEmpWage companyEmpWage = new CompanyEmpWage(company, empRatePerHour, numOfWorkingDays, maxHoursPerMonth);
             this.companyEmpWageList.AddLast(companyEmpWage);
             this.companyToEmpWageMap.Add(company, companyEmpWage);
         }
-
+       
         public void computeEmpWage()
         {
             foreach (CompanyEmpWage companyEmpWage in this.companyEmpWageList)
@@ -41,6 +47,11 @@ namespace EmployeeWage
             }
         }
 
+        /// <summary>
+        /// Calculating emp wage for each company
+        /// </summary>
+        /// <param name="companyEmpWage"></param>
+        /// <returns></returns>
         public int computeEmpWage(CompanyEmpWage companyEmpWage)
         {
             int empHrs = 0;
@@ -68,6 +79,14 @@ namespace EmployeeWage
             }
             return totalEmployeeHour * companyEmpWage.empRatePerHour;
         }
-
+        /// <summary>
+        /// Storing totalempwage for each company into dictionary
+        /// </summary>
+        /// <param name="company"></param>
+        /// <returns></returns>
+        public int getTotalWage(string company)
+        {
+            return this.companyToEmpWageMap[company].totalEmpWages;
+        }
     }
 }
