@@ -15,6 +15,7 @@ namespace EmployeeWage
             empWageBuilderArray.addCompanyEmpWage("Reliance", 10, 4, 20);
             empWageBuilderArray.addCompanyEmpWage("Samsung", 25, 5, 22);
             empWageBuilderArray.addCompanyEmpWage("Facebook", 30, 6, 25);
+            empWageBuilderArray.addCompanyEmpWage("PhonePay", 22, 6, 21);
             empWageBuilderArray.computeEmpWage();
         }       
     }
